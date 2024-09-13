@@ -1,0 +1,28 @@
+%----------------------------------------------------------------------------------------
+%   SYMBOLS
+%----------------------------------------------------------------------------------------
+
+\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+
+\chead{\emph{Symbols}} % Set the left side page header to "Symbols"
+
+\listofnomenclature{lll} % Include a list of Symbols (a two column table)
+{
+$\mathbb{N}$ & Set of natural numbers\\
+$\mathbb{Z}$ & Set of integers\\
+$\mathbb{R}$ & Set of real numbers\\
+$\mathbb{C}$ & Set of complex numbers\\
+$\mathbb{R}^{m\times n}$ & Set of all $m\times n$ matrices with real entries\\
+$\mathbb{S}^{m}$ & Set of all symmetric $m\times m$ matrices with real entries\\
+$\op{tr}(M)$ & Trace of the matrix $M$\\
+$\|M\|$ & Norm of the matrix $M$\\
+$\op{sign}(\cdot)$ & Signum function\\
+$M\gi$ & Moore-Penrose pseudo-inverse of a real matrix $M$\\
+$M^{\sharp}$ & Right-inverse of a full row rank matrix $M$\\
+$\bv$ & A general signal which maps each time instant to a vector\\
+& Below are few data matrices of the concatenated vectors of $\bv$\\
+$V$ & $\bbm v(0)&  v(1) &\ldots &v(T)\ebm$\\
+$V_-$ & $\bbm v(0)&  v(1) &\ldots &v(T-1)\ebm$\\
+$V_+$ & $\bbm v(1)&  v(2) &\ldots &v(T)\ebm$\\
+$V_{k,t,N}$ & Hankel matrix associated with $\bv$ with $t$ rows and $N$ columns
+}

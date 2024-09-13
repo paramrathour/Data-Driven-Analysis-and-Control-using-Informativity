@@ -1,0 +1,17 @@
+\chead{\emph{References}} % Change the page header to say "Bibliography"
+%\usepackage{natbib}
+%\renewcommand{\refname}{References}
+
+\makeatletter
+\interlinepenalty=10000     % don't split a single reference across page break
+
+\renewcommand\bibname{References}
+\bibliographystyle{ieeetr} % Use the "custom" BibTeX style for formatting the Bibliography
+%\setcitestyle{authoryear,open={((},close={))}}
+
+\bibliography{references} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+
+% \newcites{publ}{Publications by the candidate}
+\clearpage
+% \input{Back Matter/Publications}
+\makeatother

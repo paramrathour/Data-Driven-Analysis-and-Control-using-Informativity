@@ -1,0 +1,111 @@
+\documentclass[12pt, a4paper,openany]{Thesis} % Paper size, default font size and one-sided paper
+%% Change format for two-sided printing
+\newcounter{print}
+\setcounter{print}{0}    
+    % comment out line 2 and give argument 1 for print layout
+    % uncomment line 2 and give argument 0 for digital layout
+\input{Packages}
+\input{Custom}
+\def\dissertationTitleX{Data-Driven Analysis and Control\\using Informativity}
+\def\dissertationTitle{Data-Driven Analysis and Control using Informativity}
+\def\degree{Dual Degree (B.Tech. + M.Tech.)}
+\def\authornames{Rathour Param Jitendrakumar}
+\def\authorrollno{190070049}
+
+\begin{document}
+% \makeatletter
+% \renewcommand*{\NAT@nmfmt}[1]{\textsc{#1}}
+% \makeatother
+
+% prints author names as small caps
+% it is sometimes necessary in user documents to have access to such package-internal macros, and so the commands \makeatletter and \makeatother change the catcode 
+
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\setstretch{1.6} % Line spacing of 1.6 (double line spacing)
+
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{} % Clears all page headers and footers
+\fancyfoot{}
+% \rhead{\thepage} % Sets the right side header to show the page number
+% \lhead{} % Clears the left side page header
+\fancyhead[LE,RO]{\thepage} % page at left on even and right on odd pages
+
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+
+% PDF meta-data
+\hypersetup{pdftitle={\dissertationTitle}}
+% \hypersetup{pdfsubject=\subjectname}
+\hypersetup{pdfauthor=\authornames}
+% \hypersetup{pdfkeywords=\keywordnames}
+% --------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\input{title}
+% \newpage
+% \myemptypage
+\frontmatter
+\input{Front Matter/Declarations}
+\input{Front Matter/Abstract}
+\clearpage
+\input{Front Matter/Table of Contents}
+\clearpage % Start a new page
+\input{Front Matter/Abbreviations}
+% \clearpage % Start a new page
+\input{Front Matter/Symbols}
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+%----------------------------------------------------------------------------------------
+%   THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+\fancyhead[EC]{Chapter \thechapter, Section \thesection}
+\fancyhead[OC]{\chaptertitle}
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\input{Chapters/Introduction}
+\input{Chapters/Literature Review} 
+\input{Chapters/Behavioural Theory}
+\input{Chapters/Preliminaries}
+\input{Chapters/Informativity Approach}
+\input{Chapters/Adversarial Attacks to Data-Driven Control}
+\input{Chapters/Conclusions}
+
+\clearpage % Start a new page
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+% \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+% \appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+% \input{Appendices/AppendixA}
+% \input{Appendices/AppendixB}
+% \input{Appendices/AppendixC}
+%\input{Appendices/AppendixD}
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\backmatter
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\label{References}
+\input{Back Matter/References}
+\newpage
+% \input{LOP}
+% \newpage
+% \input{Biography}
+\input{Back Matter/Acknowledgements}
+\end{document}  

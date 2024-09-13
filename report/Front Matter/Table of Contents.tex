@@ -1,0 +1,29 @@
+% \myemptypage
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+% \setcounter{page}{9}
+\ifnum \value{print}=0 {\setcounter{page}{5}}
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+\chead{\emph{Contents}} % Set the left side page header to "Contents"
+
+\ifnum \value{print}>0 {\tableofcontents} \else {\setcounter{page}{5}\let\cleardoublepage\clearpage\tableofcontents } \fi
+
+%combine figues and tables under tables, rename title appropriately
+% \makeatletter
+% \renewcommand*{\ext@figure}{lot}
+% \let\c@figure\c@table
+% \let\ftype@figure\ftype@table
+% \let\listoftableandfigures\listoftables
+% \renewcommand*\listtablename{List of Figures and Tables}
+% \makeatother
+
+\chead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+\ifnum \value{print}>0 {\listoffigures} \else {\setcounter{page}{7}\let\cleardoublepage\clearpage\listoffigures} \fi
+% \listoffigures % Write out the List of Figures
+
+\chead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+\ifnum \value{print}>0 {\listoftables} \else {\setcounter{page}{8}\let\cleardoublepage\clearpage\listoftables} \fi
+% \listoftables % Write out the List of Tables

@@ -1,0 +1,80 @@
+\chapter{Preliminaries}
+\label{chap:behavioraltheory} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\section{Behavioral Theory}\doublespacing % Main chapter title
+\label{sec:ba}
+The philosophy of the behavioral approach is that an input-state-output or input-output viewpoint of the dynamical system is conceptually limiting. Instead, the approach studies dynamical systems as a collection of trajectories, where these trajectories are vector-valued functions of time, consistent with the physical laws of the system. 
+
+A general form for representing Finite Dimensional Linear Time Invariant (FDLTI) systems are the following differential equations
+\begin{equation}\label{eq:behavior1}
+R_n \frac{\d ^n w}{\d t^n} + R_{n-1}\frac{\d ^{n-1} w}{\d t^{n-1}} + \ldots + R_1 \frac{\d w}{\d t} + R_0w = 0
+\end{equation}
+where $R_0, R_1, \ldots , R_n$ are real-valued matrices and $w$ is a solution belonging to a function space of vector-valued functions which are locally square integrable. The set of all such trajectories $w$ represents the \emph{behavior $\mathfrak{B}$ of the system}. Equation \ref{eq:behavior1} can be succinctly represented as
+\begin{align}\label{eq:behavior2}
+R\left(\frac{\d}{\d t}\right)w = 0 \quad \rightarrow \quad\mathfrak{B}=\operatorname{ker}\left(R\left(\frac{\d}{\d t}\right)\right)\\
+\text{where } R(\xi) = R_n \xi^n + R_{n-1} \xi^{n-1} + \ldots + R_1 \xi + R_0 
+\end{align}
+Now, $R(\xi)$ can be algebraically studied to infer properties of the behavior.
+\subsection{Controllability and Stabilizability}
+Behavioral theory uses trajectory-level properties to define the concepts of controllability and stabilizability instead of input-output-state representation. It still utilises the notion of state but instead, uses trajectories. At a time instant $t_0$, two trajectories belong to same state if they can be concatenated at that instant, i.e., $w_1, w_2 \in \mathfrak{B}$ at $t=t_0$ are in same state if the trajectory $w \in\mathfrak{B}$ such that $w(t)=w_1(t)$ for $t<t_0$ and $w(t)=w_2(t)$ for $t\geq t_0$.
+\begin{definition}[\cite{9781279}, Controllability]
+A behavior is controllable if for all trajectories $w_1, w_2 \in \mathfrak{B}$ and $t_0\in \mathbb{R}$, there exists a $t_1\geq t_0$ and a trajectory $w\in \mathfrak{B}$ such that $w(t)=w_1(t)$ for $t<t_0$ and $w(t)=w_2(t)$ for $t\geq t_1$.
+\end{definition}
+\begin{definition}[\cite{9781279}, Stabilizability]
+A behavior is stabilizable if for all trajectories $w_1 \in \mathfrak{B}$ and $t_0\in \mathbb{R}$, there exists a trajectory $w\in \mathfrak{B}$ such that $w(t)=w_1(t)$ for $t<t_0$ and $\lim_{t\rightarrow\infty}w(t)=0$.
+\end{definition}
+\subsubsection{Autonomous Systems}
+Autonomous Systems generalises the notion of an autonomous state-space system $\frac{\d x}{\d t}=\bA x$
+\begin{definition}[\cite{9781279}, Autonomous Behavior]
+A behavior is autonomous if the future trajectories from $t_0\in \mathbb{R}$ are fully determined by the state of the system at $t_0$
+\end{definition}
+Equivalently, $\op{det}(R(\xi))\neq0$.
+
+The behavior of such systems can be divided into two parts: \emph{controllable} and \emph{autonomous}. That is, any trajectory $w$ is uniquely given by the addition of two trajectories, where one belongs to the controllable sub-behavior while the other belongs to the autonomous sub-behavior.
+\subsection{Dissipative Dynamical Systems}\label{eq:dds}
+\cite{Willems1972DissipativeDS, Willems1972DissipativeDS2} formalises the concept of dissipativity of a system using the \emph{storage function} of that system with respect to a \emph{supply rate}.
+\subsubsection{State Transition Maps}
+Originally, dissipativity was developed for input-state-output systems defined using state transition maps $\phi, r$ where $u,x,y$ represent input, state, output, respectively
+\begin{align}
+\label{eq:xstf}
+x(t) &= \phi(t,t_0,x_0,u) \text{ for } t \geq t_0\\
+\label{eq:yrof}
+y(t) &= r(x(t),u(t)) \text{ for } t \geq t_0.
+\end{align}
+\begin{assumption}[\cite{9781279}]
+It is assumed that $\phi$ satisfies the condition such that the system is time-invariant and the state at any time $(t_0)$ can be uniquely determined by using any previous state (at time $t_1<t_0$) and inputs to the system within that time (from $[t_1,t_0]$).
+Formally, for any state $x_0$, input $u$ and $t_0\leq t_1\leq t_2$
+\begin{enumerate}
+\item $\phi(t_0, t_0, x_0, u) = x_0$, %(i.e., the state at time $t_0$ resulting from an initial state $x_0$ at time $t_0$ is itself $x_0$).
+\item $\phi(t_1, t_0, x_0, u_1) = \phi(t_1, t_0, x_0, u_2)$ whenever $u_1(t) = u_2(t)$ for all $t_0 \leq t \leq t_1$, %(i.e., the change in state between instants $t_0$ and $t_1$ depends on the input in this interval and not on past or future values of the input).
+\item $\phi(t_2, t_0, x_0, u) = \phi(t_2, t_1, \phi(t_1, t_0, x_0, u), u)$, %(i.e., the state at time $t_2$ resulting from an initial  state $x_0$ at time $t_0$ and input $u$ is equal to the state at time $t_2$ corresponding to a state $x_1$ at time $t_1$ and input $u$, where the state $x_1$ at time $t_1$ is that which results from a state $x_0$ at time $t_0$ and input $u$).
+\item $\hat{u}(t) = u(t+T)\ \forall t\in\mathbb{R}\rightarrow\phi(t_1+T,t_0+T,x_0,\hat{u})=\phi(t_1,t_0,x_0,u)$.%\phi(t_1 + T, t_0 + T, x_0, \hat{u}) = \phi(t_1, t_0, x_0, u)$ where $\hat{u}(t) = u(t + T)$ for all real $t$. %(i.e., if the input and the time of the initial state $x_0$ are shifted by time $T$, then the state of the system will also be shifted by that time).
+\end{enumerate}
+\end{assumption}
+\begin{definition}[\cite{9781279}, Dissipativity]
+A system is dissipative with respect to supply rate $w$, if there exists a non-negative function (the storage function) $S$ of the state that satisfies
+\begin{equation}
+\label{eq:di}
+S(x_0) + \int_{t_0}^{t_1}w(u(t),y(t))\mathrm{dt} \geq S(x(t_1))
+\end{equation}
+\end{definition}
+Intuitively, the change in storage between a time interval must be always less than or equal to the total supply in that interval.
+\subsubsection{Trajectories}
+This notion of dissipativity was formalised for the state space systems by using the Kalman Yakubovich Popov (KYP) lemma. Consider the system in the following form
+\begin{equation}
+\label{eq:ssr}
+\begin{aligned}
+\dot{\bmx} &= A \bmx + B \bmu\\
+\bmy &= C \bmx + D \bmu
+\end{aligned}
+\end{equation}
+where $\bmx\in\mathbb{R}^n, \bmu\in\mathbb{R}^m, \bmy\in\mathbb{R}^p$.
+
+\begin{definition}[\cite{9781279}, Dissipativity]
+Assuming the system in controllable and observable, the system is dissipative with respect to the supply rate $w = u^T y$ iff the transfer function $G(s) = D + C(sI - A)^{-1}B$ is \emph{positive-real} for all $\lambda$ in open right half plane.
+
+Alternatively, the system is dissipative iff there exists an $X\geq 0$ satisfying
+\begin{equation}
+\begin{bmatrix} -A^T X - XA& C^T - XB\\ C - B^T X& D + D^T\end{bmatrix} \geq 0 \label{eq:lmi}
+\end{equation}
+Then, the available storage takes the form $S_a(\bmx) = \tfrac{1}{2}\bmx^T X^- \bmx$ and required supply is $S_r(\bmx) = \tfrac{1}{2}\bmx^T X^+ \bmx$ where $X^-, X^+  > 0$ are also solutions to \ref{eq:lmi} such that $X^+ \geq X \geq X^-$.
+\end{definition}

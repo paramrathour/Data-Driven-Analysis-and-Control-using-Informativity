@@ -1,0 +1,127 @@
+\section{Transition to the Discrete Framework}%\doublespacing % Main chapter title
+\subsection*{Notation}
+Let's introduce some important notation for the next topics
+\begin{itemize}
+\item $\mathbb{S}^n$ is the set of all symmetric matrices in $\mathbb{R}^{n\times n}$
+% \item $\op{col}(x,y)$ denotes the column vector $\bbm x\\y\ebm$
+\item $M\gi$ is the Moore-Penrose pseudo-inverse of a real matrix $M$
+\item $M^{\sharp}$ is the right-inverse of a full row rank matrix $M$
+\item For a general signal $\bv$ and $k\in \mathbb{Z}$, $t, T\in \mathbb{N}$,\\
+$V_{k, k+T}$ is its restriction to the interval $\{k,k+1,\ldots,k+T\}$ as $V_{k, k+T}=\bbm v(k)\\\vdots \\v( k+T)\ebm$
+\item $V_{k,t,N}$ is the Hankel matrix associated to $\bv$ given by
+\[V_{k,t,N}
+=
+\begin{bmatrix}
+v(k) & v(k+1) & \cdots & v(k+N-1)\\
+v(k+1) & v(k+2) & \cdots & v(k+N)\\
+\vdots & \vdots & \ddots & \vdots\\
+v(k+t-1) & v(k+t)  & \cdots & v(k+t+N-2)
+\end{bmatrix}\]
+\end{itemize}
+\subsection{Inferring the System from the Data}
+We have seen analysis of continuous systems using the geometrical and behavioural approach, let us now study discrete systems which will help us to analyse data-driven techniques. A discrete-time linear system is given by
+\begin{subequations}\label{ch5:e:lin-sys}
+\begin{align}
+\bmx(t+1)&=A \bmx(t)+B \bmu(t)\label{lin.sys.1}\\
+\bmy(t)&=C \bmx(t)+D \bmu(t)\label{lin.sys.2}
+\end{align}
+\end{subequations}
+where $\bmx(t)\in\mathbb{R}^n, \bmu(t)\in\mathbb{R}^m, \bmy(t)\in\mathbb{R}^p$ and $A,B,C,D$ are real matrices. We assume that the system is controllable and observable.
+
+Over the time $[0,t-1]$, the input-output response of the system can be expressed as
+\be
+\label{fund.eqn}
+\bbm
+U_{0,t-1}\\
+\hline
+Y_{0,t-1}
+\ebm
+=
+\begin{bmatrix}
+I_t & 0_{tm\times n}\\
+\hline
+\mathcal{T}_t & \mathcal{O}_t
+\end{bmatrix}
+\bbm
+U_{0,t-1}\\
+\hline
+X_{0,0}
+\ebm
+\ee
+where $\mathcal{T}_t$ is the order $t$ Toeplitz matrix and $\mathcal{O}_t$ is the order $t$ observability matrix,
+\begin{eqnarray*} \label{toep.obs.matrx}
+\mathcal{T}_t := 
+\begin{bmatrix}
+D & 0 & 0 & \cdots & 0 \\
+CB & D & 0 &\cdots & 0\\
+CAB & CB & D & \cdots & 0\\
+\vdots &\vdots &\vdots &\ddots & \vdots \\
+CA^{t-2}B & C A^{t-3} B & C A^{t-4} B & \cdots & D\\
+\end{bmatrix}\qquad
+\mathcal{O}_t := 
+\begin{bmatrix}
+C\\
+CA\\
+\vdots\\
+C A^{t-1}
+\end{bmatrix}
+\end{eqnarray*}
+Now, the same response can be written using Hankel matrices by considering differents states of $\bx$ as initial states and applying \eqref{fund.eqn}
+\be\label{eq.Htnd}
+\begin{bmatrix}
+U_{0,t,T-t+1}\\
+\hline
+Y_{0,t,T-t+1}
+\end{bmatrix}=
+\begin{bmatrix}
+I_{tm} & 0_{tm\times n}\\
+\hline
+\mathcal{T}_t & \mathcal{O}_t
+\end{bmatrix}
+%
+\begin{bmatrix}
+U_{0, t,T-t+1} \\
+\hline
+X_{0, 1, T-t+1}
+\end{bmatrix}
+\ee
+Now, when the actual values are unavailable, we replace those values of vectors by data to give us the following
+\be\label{eq.Ht}
+\begin{bmatrix}
+(U_d)_{0,t,T-t+1}\\
+\hline
+(Y_d)_{0,t,T-t+1}
+\end{bmatrix}=
+\begin{bmatrix}
+I_{tm} & 0_{tm\times n}\\
+\hline
+\mathcal{T}_t & \mathcal{O}_t
+\end{bmatrix}
+%
+\begin{bmatrix}
+(U_d)_{0, t,T-t+1} \\
+\hline
+(X_d)_{0, 1, T-t+1}
+\end{bmatrix}
+\ee
+This condition on data is the basis of control law design using data as we will see in the next section.
+\subsection{Persistently Exciting Data}
+\begin{definition}{\cite{willems2005note}}
+A signal $\bv_{[0, T-1]}\in\mathbb{R}^n$ is persistently exciting of order $L$ if the matrix $V_{0,L,T-L+1}$ has full rank $nL$.
+\end{definition}
+\begin{lemma}\label{lem:willems}
+{\rm \cite{willems2005note}, Willem's Fundamental Lemma}
+For the system \eqref{lin.sys.1}, if the input $u_{d, [0, T-1]}$ is persistently exciting of order $n+t$, then the following condition holds
+\be\label{ch2:eq:inf for sys ident}
+{\rm rank}
+\begin{bmatrix}
+U_{0, t,T-t+1} \\
+\hline
+X_{0, 1, T-t+1}
+\end{bmatrix}
+=
+n+ tm
+\ee
+\end{lemma} 
+Using this lemma, a system can be uniquely determined from data when the input is persistently exciting.
+We also say, that such data is \emph{informative} for system identification. The topic for informativity will be our next discussion.

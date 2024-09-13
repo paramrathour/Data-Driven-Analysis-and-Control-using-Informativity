@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://www.tensorflow.org/tutorials/generative/adversarial_fgsm
+HostUrl=https://www.tensorflow.org/static/tutorials/generative/images/adversarial_example.png

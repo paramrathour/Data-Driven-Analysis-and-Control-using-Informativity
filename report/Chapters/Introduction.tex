@@ -1,0 +1,34 @@
+% Chapter Template
+
+\chapter{Introduction}\doublespacing % Main chapter title
+
+\label{chap:introduction} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+% \fancyhead[EC]{\emph{Chapter I}} %left-side page, centre header
+% \fancyhead[OC]{\emph{Introduction}} %right-side page centre header
+
+\thispagestyle{empty}  % no page number on 1st page of introduction
+Dynamical systems model the complex interactions between the constantly changing quantities and offer a mathematical framework for explaining the world around us. It involves the analysis and prediction of the behaviour of systems. The focus of Systems and Control theory is to design \emph{controllers} that meet desired specifications. These controllers are physical devices which are interconnected with the system.
+
+The evolution of continuous systems is usually described by differential equations whereas iterative maps are used for discrete systems. From the classical mechanics of Newton and Leibniz to the control theory of Kalman and Willems, scientists have engaged in the analytical study of these mathematical models to derive laws of the system. But nowadays, the rising complexity of system models and cheap availability of data is giving way to \emph{data-driven approaches}. The arrival of machine learning and big data has also helped the development of such data-driven frameworks. These approaches focus on finding the laws of the system directly, using measured data without losing out on theoretical guarantees. They can be applied directly to solve many critical problems in the fields of epidemiology, climate change.
+
+This thesis presents a modern data-driven outlook on systems. 
+\section{Problem Statement}
+To identify various control properties of the system and to design controllers to satisfy various control objectives of the system from its data.
+\section{Need of the Study}
+To resolve the following challenges in modern dynamical systems:
+\begin{description}
+\item[Nonlinearity]
+Working with linear systems is simple and desirable, we can decouple the system with a similarity transform. Sadly, no such linear transformation exist for nonlinear systems, in general. A way is to perform local linearisations around fixed points, periodic orbits, etc. But predicting global behaviour in a locally linear model remains difficult.
+\item[Noise in the modelled data]
+Noise changes the entire dynamical system and in most cases it will result in losing linearity of the system which leads to above mentioned problems
+\item[Unknown dynamics] In many fields such as neuroscience, epidemiology, and ecology which tackle complex realistic systems, the physical laws governing these systems are unknown. Even when the dynamics are known, uncovering the higher dimension dominant behaviour is tough for phenomenon of turbulence, protein folding, etc.
+\end{description}
+\section{Study Objectives}
+To study possible solutions for the above challenges
+% \section{Possible Solutions}
+\begin{description}
+    \item[Informativity approach] With this framework, we convert the control problem in our hand to a Linear Matrix Inequality (LMI). For some control problems, specific noise models can also be accommodated in its analysis making it a robust solution.
+    \item[Operator-theoretic representations] With this framework, we represent nonlinear systems in terms of infinite-dimensional linear operators using the Koopman operator.
+    \item[Data-driven regression and machine learning] With this framework, we directly discover dynamical systems from data using SINDy.% and other data-driven Koopman methods discussed later.
+\end{description}

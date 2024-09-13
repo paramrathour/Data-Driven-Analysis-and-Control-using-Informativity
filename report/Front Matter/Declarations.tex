@@ -1,0 +1,170 @@
+\setstretch{1.3}
+\pagestyle{plain}
+% %----------------------------------------------------------------------------------------
+% % DEDICATION
+% %----------------------------------------------------------------------------------------
+% %
+% \setstretch{1.3} % Return the line spacing back to 1.3
+% \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+% %
+
+% %
+% \dedicatory{\textit{Dedicated to my beloved parents.}} % Dedication text
+% % \thispagestyle{empty}
+% %
+
+% % \myemptypage
+
+% %----------------------------------------------------------------------------------------
+% Approval page
+%----------------------------------------------------------------------------------------
+\thispagestyle{empty} % Page style needs to be empty for this page
+
+\addtotoc{Approval}
+\addtocontents{toc}{}
+% \pagenumbering{roman}
+% \cfoot{\thepage}
+% \setcounter{page}{3}
+\vspace{-1in}
+\begin{center}
+{\LARGE  {\bf Dissertation Approval}}
+\end{center}
+\vspace*{0.1in} \noindent This dissertation entitled {\large \bf \dissertationTitle} by {\bf \large \authornames}, Roll No. \authorrollno, is approved for the degree of  {\large \bf \degree} from the Indian Institute of Technology Bombay.\\\\
+
+\vspace{1em}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.6\linewidth}
+\includegraphics{BELUR.pdf}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+\includegraphics{DM.pdf}
+\end{minipage}
+\end{figure}
+\vspace{-1em}
+  \vspace{-2em}
+  \hspace*{0.8cm}\ldots\ldots \ldots\ldots \ldots\ldots \ldots\ldots  \hspace{1.85in}  \ldots\ldots \ldots\ldots \ldots\ldots \ldots\ldots \ldots\ldots \\
+  \hspace*{0.4cm}\hspace*{0.4cm} Prof. Madhu N. Belur \hspace{2in} Prof. Dwaipayan Mukherjee\\
+  \hspace*{0.1cm} (Chairperson and Examiner 1) \hspace{2.2in} (Examiner 2)\\\\
+
+% \vspace{2cm}
+
+  \vspace{-1em}
+  \begin{figure}[H]
+  \hspace*{0.3cm}\includegraphics{DA.pdf}
+  \end{figure}
+  \vspace{-3em}
+  \hspace*{0.8cm}\ldots\ldots \ldots\ldots \ldots\ldots \ldots\ldots
+  % \hspace{2in}  \ldots\ldots \ldots\ldots \ldots\ldots \ldots\ldots
+  \\
+  \hspace*{0.8cm}\hspace*{0cm} Prof. Debasattam Pal
+  % \hspace{2.25in} Chairman name
+  \\
+  \hspace*{0.8cm}\hspace*{0.9cm} (Supervisor) 
+  % \hspace{2.89in} (Chairman)
+  \\\\
+
+\vspace{1.5cm}
+
+\noindent
+ \hspace*{0.4cm}\hspace*{0.4cm} Defence Date: 4th July 2024\\\\
+ \hspace*{0.4cm}\hspace*{0.4cm} Place: IIT Bombay
+\begin{textblock*}{\textwidth}(3cm,31.65cm) % Adjust the position as needed
+    \noindent \texttt{\customhref[violet]{https://ams.iitb.ac.in/d/158985-F5M1KJSP210XHZZW}}
+\end{textblock*}
+
+\ifnum \value{print}>0 {\myemptypage} \else {\clearpage} \fi
+
+%-------------------------------------------------------------
+%   DECLARATION PAGE
+%   Your institution may give you a different text to place here
+%----------------------------------------------------------------------------------------
+
+% ------------------------------------------------
+% Professor's declaration
+\ifnum \value{print}>0 {\setcounter{page}{3}} \fi
+
+\Declaration{\addtocontents{toc}{} % Add a gap in the Contents, for aesthetics
+\vspace*{0.1in}
+This is to certify that the dissertation entitled \textbf{``\dissertationTitle''}, submitted by \textbf{\authornames} to the Indian Institute of Technology Bombay, for the award of the degree of \textbf{\degree} in Electrical Engineering, is a record of the original, bona fide research work carried out by him under our supervision and guidance. The dissertation has reached the standards fulfilling the requirements of the regulations related to the award of the degree.
+
+\par The results contained in this dissertation have not been submitted in part or in full to any other University or Institute for the award of any degree or diploma to the best of our knowledge.
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+
+\vspace*{2.5cm} %\vfill
+%\begin{multicols}{2}
+%\begin{center}
+%\begin{flushleft}
+%Date:
+%\end{flushleft}
+%\textbf{Prof. Akhilesh Kumar Maurya}\\
+%Department of Civil Engineering,\\
+%Indian Institute of Technology Guwahati.
+%\end{center}
+\begin{flushleft}
+%\begin{flushleft}
+%Date:
+%\end{flushleft}
+\vspace{-4em}
+  \begin{figure}[H]
+  \hspace*{0.3cm}\includegraphics{CERT.pdf}
+  \end{figure}
+  \vspace{-3em}
+\ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots\\
+\vspace{2mm}
+\textbf{Prof. Debasattam Pal}\\
+Department of Electrical Engineering,\\
+Indian Institute of Technology Bombay.
+\end{flushleft}
+\begin{textblock*}{\textwidth}(3cm,31.65cm) % Adjust the position as needed
+    \noindent \texttt{\customhref[violet]{https://ams.iitb.ac.in/d/158985-F5M1KJSP210XHZZW}}
+\end{textblock*}
+%\end{multicols}
+\vfill{}
+}
+
+\ifnum \value{print}>0 {\myemptypage} \else {\clearpage} \fi
+
+% ------------------------------------------------
+% Student declaration
+\ifnum \value{print}>0 {\setcounter{page}{5}} \fi
+
+\addtotoc{Declaration} % Add the "Scope for future work" page entry to the Contents
+
+{\addtocontents{toc}{} % Add a gap in the Contents, for aesthetics
+
+\begin{center}
+    \textbf{\LARGE {Declaration}}
+\end{center}}
+\vspace*{0.1in}
+I declare that this written submission represents my ideas in my own words. Where others' ideas and words have been included, I have adequately cited and referenced the original source. I declare that I have adhered to all principles of academic honesty and integrity and have not misrepresented or fabricated, or falsified any idea/data/fact/source in my submission. I understand that any violation of the above will cause disciplinary action by the Institute and can also evoke penal action from the source which has thus not been properly cited or from whom proper permission has not been taken when needed.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{figure}[H]
+\includegraphics{DEC.pdf}
+\end{figure}
+% \unmarkedfntext{\url{https://ams.iitb.ac.in/d/158985-F5M1KJSP210XHZZW}}
+\vspace*{-1cm} %\vfill
+\begin{flushleft}
+\ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots \ldots\\
+\vspace{2mm}
+\textbf{\authornames} \\
+Roll No.: \authorrollno \\
+Date: 4th July 2024\\
+Place: IIT Bombay
+\end{flushleft}
+\begin{textblock*}{\textwidth}(3cm,31.65cm) % Adjust the position as needed
+    \noindent \texttt{\customhref[violet]{https://ams.iitb.ac.in/d/158985-F5M1KJSP210XHZZW}}
+\end{textblock*}
+\ifnum \value{print}>0 {\myemptypage} \else {\clearpage} \fi
+
+% \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
